@@ -8,6 +8,7 @@ Created on Wed Apr  5 02:49:58 2023
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 from scipy.stats import pearsonr, skew, kurtosis
 
 def read_data_file(file_path):
@@ -134,3 +135,20 @@ plt.show()
 corr = power_data.loc[power_countries, '1990':'2020'].corrwith(co2_data.loc[co2_countries, '1990':'2020'])
 print("\nCorrelation between electric power consumption and co2 emission for selected countries:")
 print(corr)
+
+# create a DataFrame with data for China and the United States
+data = {'Country': ['China', 'United States'], 
+        'Electric power consumption (kWh per capita)': [4843, 9119], 
+        'CO2 emissions (metric tons per capita)': [7.5, 15.0], 
+        'Population growth (annual %)': [0.34, 0.71], 
+        'Renewable energy consumption (% of total final energy consumption)': [5.8, 11.1]}
+df = pd.DataFrame(data).set_index('Country')
+
+# transpose the DataFrame
+df_t = df.T
+
+# plot heatmap
+sns.heatmap(df_t, cmap='YlGnBu', annot=True, fmt='.1f', vmin=0, vmax=20)
+
+plt.title('China and the United States Indicators Heatmap')
+plt.show()
