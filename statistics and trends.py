@@ -138,10 +138,10 @@ print(corr)
 
 # create a DataFrame with data for China and the United States
 data = {'Country': ['China', 'United States'], 
-        'Electric power consumption (kWh per capita)': [4843, 9119], 
-        'CO2 emissions (metric tons per capita)': [7.5, 15.0], 
-        'Population growth (annual %)': [0.34, 0.71], 
-        'Renewable energy consumption (% of total final energy consumption)': [5.8, 11.1]}
+        'Electric power consumption (kWh per capita)': [7643, 9119], 
+        'CO2 emissions (metric tons per capita)': [9.5, 13.0], 
+        'Population growth (annual %)': [2.71, 1.75], 
+        'Renewable energy consumption (% of total final energy consumption)': [5.8, 7.1]}
 df = pd.DataFrame(data).set_index('Country')
 
 # transpose the DataFrame
